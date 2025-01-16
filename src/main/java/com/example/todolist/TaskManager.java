@@ -18,7 +18,7 @@ public class TaskManager {
         if(tasks.isEmpty()){
             System.out.println("Lista de tarefas vazia!");
         } else {
-            tasks.stream().forEach(task -> {System.out.println(task);});
+            tasks.stream().forEach(task -> {System.out.println((tasks.indexOf(task) + 1) + ". " + task);});
         }
     }
 
@@ -36,10 +36,10 @@ public class TaskManager {
 
     public void updateTaskStatus(int index, String status){
         if(index >= tasks.size() || index < 0){
+            System.out.println("Índice inválido!");
+        } else {
             tasks.get(index).setStatus(status);
             System.out.println("Status atualizado com sucesso!");
-        } else {
-            System.out.println("Índice inválido!");
         }
     }
 }
